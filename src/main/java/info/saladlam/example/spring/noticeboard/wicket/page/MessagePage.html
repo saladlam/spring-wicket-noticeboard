@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+</head>
+<body>
+<wicket:extend>
+  <h4 wicket:id="title"></h4>
+  <form wicket:id="editor" class="ui form">
+    <input wicket:id="formCsrf" type="hidden">
+    <fieldset>
+      <legend><wicket:message key="message"></wicket:message></legend>
+      <div class="field">
+        <label><wicket:message key="message.publishDate"></wicket:message></label>
+        <input wicket:id="edPublishDate" id="edPublishDate" />
+      </div>
+      <div class="field">
+        <label><wicket:message key="message.removeDate"></wicket:message></label>
+        <input wicket:id="edRemoveDate" id="edRemoveDate" />
+      </div>
+      <div class="field">
+        <label><wicket:message key="message.description"></wicket:message></label>
+        <textarea wicket:id="edDescription" id="edDescription"></textarea>
+      </div>
+      <button id="edSave" class="ui mini primary button"><wicket:message key="save"></wicket:message> <i class="send icon"></i></button>
+    </fieldset>
+  </form>
+</wicket:extend>
+</body>
+</html>

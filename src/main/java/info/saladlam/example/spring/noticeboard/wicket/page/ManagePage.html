@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+</head>
+<body>
+<wicket:extend>
+  <div class="ui inverted menu">
+    <h2 wicket:id="title" class="item"></h2>
+    <div class="right menu">
+      <div class="item">
+        <form wicket:id="fLogout" method="post">
+          <input wicket:id="formCsrf" type="hidden">
+          <button id="buLogin" class="ui red basic button"><wicket:message key="logout"></wicket:message></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div wicket:id="txUser" id="txUser"></div>
+  <h4><wicket:message key="yourMessage"></wicket:message></h4>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th class="two wide"><wicket:message key="message.publishDate"></wicket:message></th>
+        <th class="two wide"><wicket:message key="message.removeDate"></wicket:message></th>
+        <th class="two wide"><wicket:message key="message.status"></wicket:message></th>
+        <th class="eight wide"><wicket:message key="message.description"></wicket:message></th>
+        <th class="two wide">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody id="taMy">
+      <tr wicket:id="userMessages">
+        <td wicket:id="publishDate" class="myPublishDate"></td>
+        <td wicket:id="removeDate" class="myRemoveDate"></td>
+        <td wicket:id="status" class="myStatus"></td>
+        <td wicket:id="description" class="myDescription"></td>
+        <td>
+          <a wicket:id="edit" class="ui mini green icon button"><wicket:message key="edit"></wicket:message> <i class="edit icon"></i></a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <a wicket:id="buNewMessage" class="ui mini icon button" id="buNewMessage"><wicket:message key="newMessage"></wicket:message> <i class="add circle icon"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 wicket:id="tWaitingApprove"></h4>
+  <table wicket:id="cWaitingApproveMessages" class="ui celled table">
+    <thead>
+      <tr>
+        <th class="two wide"><wicket:message key="message.owner"></wicket:message></th>
+        <th class="two wide"><wicket:message key="message.publishDate"></wicket:message></th>
+        <th class="two wide"><wicket:message key="message.removeDate"></wicket:message></th>
+        <th class="eight wide"><wicket:message key="message.description"></wicket:message></th>
+        <th class="two wide">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody id="taApprove">
+      <tr wicket:id="waitingApproveMessages">
+        <td wicket:id="owner" class="appOwner"></td>
+        <td wicket:id="publishDate" class="appPublishDate"></td>
+        <td wicket:id="removeDate" class="appRemoveDate"></td>
+        <td wicket:id="description" class="appDescription"></td>
+        <td>
+          <a wicket:id="approve" class="ui mini green icon button"><wicket:message key="approve"></wicket:message> <i class="edit icon"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</wicket:extend>
+</body>
+</html>

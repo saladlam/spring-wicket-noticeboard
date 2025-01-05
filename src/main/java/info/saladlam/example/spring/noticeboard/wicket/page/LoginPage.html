@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html wicket:message="lang:htmlLang" xmlns:wicket="http://wicket.apache.org">
+<head>
+  <title wicket:id="pageTitle"></title>
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+
+<body>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui header"><wicket:message key="login"></wicket:message></h2>
+    <form wicket:id="fLogin" method="post" class="ui large form">
+      <input wicket:id="formCsrf" type="hidden">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="username" wicket:message="placeholder:username">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" wicket:message="placeholder:password">
+          </div>
+        </div>
+        <button class="ui fluid large submit green button"><wicket:message key="login"></wicket:message></button>
+      </div>
+      <div wicket:id="cError" class="ui error message" style="display: block;">
+        <div><wicket:message key="loginFailed"></wicket:message></div>
+        <div wicket:id="errorMessage"></div>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

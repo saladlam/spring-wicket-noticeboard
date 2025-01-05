@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+</head>
+<body>
+<wicket:extend>
+  <div class="ui inverted menu">
+    <h1 class="item"><wicket:message key="applicationName"></wicket:message></h1>
+    <div class="right menu">
+      <div wicket:id="cChEn" class="item">
+        <a wicket:id="buChEn" id="buChEn" class="ui green basic button"><wicket:message key="lang.en"></wicket:message></a>
+      </div>
+      <div wicket:id="cChJa" class="item">
+        <a wicket:id="buChJa" id="buChJa" class="ui green basic button"><wicket:message key="lang.ja"></wicket:message></a>
+      </div>
+      <div wicket:id="cLogin" class="item">
+        <a wicket:id="buLogin" id="buLogin" class="ui red basic button"><wicket:message key="login"></wicket:message></a>
+      </div>
+      <div wicket:id="cManage" class="item">
+        <a wicket:id="buManage" id="buManage" class="ui red basic button"><wicket:message key="manage"></wicket:message></a>
+      </div>
+      <div wicket:id="cLogout" class="item">
+        <form wicket:id="fLogout" method="post">
+          <input wicket:id="formCsrf" type="hidden">
+          <button class="ui red basic button" id="buLogout"><wicket:message key="logout"></wicket:message></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th class="four wide"><wicket:message key="message.publishDate"></wicket:message></th>
+        <th class="twelve wide"><wicket:message key="message.description"></wicket:message></th>
+      </tr>
+    </thead>
+    <tbody id="taPublish">
+      <tr wicket:id="messages">
+        <td wicket:id="publishDate" class="pubPublishDate"></td>
+        <td wicket:id="description" class="pubDescription"></td>
+      </tr>
+    </tbody>
+  </table>
+</wicket:extend>
+</body>
+</html>

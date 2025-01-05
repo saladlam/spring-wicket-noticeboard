@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet id="appSchema-0.1" author="saladlam">
+        <createTable tableName="message">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="publish_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="remove_date" type="TIMESTAMP"/>
+            <column name="owner" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(65535)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="approved_by" type="VARCHAR(255)"/>
+            <column name="approved_date" type="TIMESTAMP"/>
+        </createTable>
+        <createTable tableName="users">
+            <column name="username" type="VARCHAR(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="TINYINT"/>
+        </createTable>
+        <createTable tableName="authorities">
+            <column name="username" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="jNMPZozJbONtKVzs" baseColumnNames="username" baseTableName="authorities"
+                                 referencedColumnNames="username" referencedTableName="users"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet id="appInit" author="saladlam">
+        <insert tableName="message">
+            <column name="publish_date" value="2019-08-01 12:30:00"/>
+            <column name="remove_date" value="NULL"/>
+            <column name="owner" value="user1"/>
+            <column name="description" value="Hello world"/>
+            <column name="approved_by" value="admin"/>
+            <column name="approved_date" value="2019-07-31 21:00:00"/>
+        </insert>
+        <insert tableName="message">
+            <column name="publish_date" value="2019-08-02 14:30:00"/>
+            <column name="remove_date" value="NULL"/>
+            <column name="owner" value="user2"/>
+            <column name="description" value="こんにちは"/>
+            <column name="approved_by" value="admin"/>
+            <column name="approved_date" value="2019-07-31 21:00:00"/>
+        </insert>
+        <insert tableName="message">
+            <column name="publish_date" value="2019-07-01 00:00:00"/>
+            <column name="remove_date" value="2019-07-14 23:59:59"/>
+            <column name="owner" value="user2"/>
+            <column name="description" value="Expired message"/>
+            <column name="approved_by" value="admin"/>
+            <column name="approved_date" value="2019-06-29 12:00:00"/>
+        </insert>
+        <insert tableName="message">
+            <column name="publish_date" value="2019-08-03 10:00:00"/>
+            <column name="remove_date" value="NULL"/>
+            <column name="owner" value="user1"/>
+            <column name="description" value="Waiting approve message 1"/>
+            <column name="approved_by" value="NULL"/>
+            <column name="approved_date" value="NULL"/>
+        </insert>
+        <insert tableName="message">
+            <column name="publish_date" value="2019-08-03 10:00:00"/>
+            <column name="remove_date" value="NULL"/>
+            <column name="owner" value="user1"/>
+            <column name="description" value="Waiting approve message 2"/>
+            <column name="approved_by" value="NULL"/>
+            <column name="approved_date" value="NULL"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="user1"/>
+            <column name="password" value="$2a$10$DVg9RjwyIV9RzVZD9t82dejVx2RYlO/fBf5yJeyFzZuWHQA1uq/za"/>
+            <column name="name" value="Hana Setsuko"/>
+            <column name="email" value="user1@a.co.jp"/>
+            <column name="enabled" valueNumeric="1"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="user2"/>
+            <column name="password" value="$2a$10$KwYcWiGAUX3owaOECGmPHu6cGXo4XwWCvQeNE5WLLM/3M5de/i9fO"/>
+            <column name="name" value="Kyoko Hachiro"/>
+            <column name="email" value="user2@b.co.jp"/>
+            <column name="enabled" valueNumeric="1"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="admin"/>
+            <column name="password" value="$2a$10$aDmNiyH3Baf1opRdWNK8POLor0JwoQtBqG3dLZhgQG/am7RHWeMg."/>
+            <column name="name" value="Yasu Takuto"/>
+            <column name="email" value="admin@c.co.jp"/>
+            <column name="enabled" valueNumeric="1"/>
+        </insert>
+        <insert tableName="authorities">
+            <column name="username" value="user1"/>
+            <column name="authority" value="USER"/>
+        </insert>
+        <insert tableName="authorities">
+            <column name="username" value="user2"/>
+            <column name="authority" value="USER"/>
+        </insert>
+        <insert tableName="authorities">
+            <column name="username" value="admin"/>
+            <column name="authority" value="USER"/>
+        </insert>
+        <insert tableName="authorities">
+            <column name="username" value="admin"/>
+            <column name="authority" value="ADMIN"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
