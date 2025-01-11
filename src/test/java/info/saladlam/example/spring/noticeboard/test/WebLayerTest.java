@@ -1,5 +1,6 @@
 package info.saladlam.example.spring.noticeboard.test;
 
+import info.saladlam.example.spring.noticeboard.ApplicationConstant;
 import info.saladlam.example.spring.noticeboard.service.ApplicationDateTimeService;
 import info.saladlam.example.spring.noticeboard.support.Helper;
 import info.saladlam.example.spring.noticeboard.support.WithMockCustomUser;
@@ -104,7 +105,7 @@ class WebLayerTest {
 				.andReturn();
 		HttpSession httpSession = result.getRequest().getSession(false);
 		assertThat(httpSession).isNotNull();
-		Object session = httpSession.getAttribute("wicket:wicket-filter:session");
+		Object session = httpSession.getAttribute(ApplicationConstant.ATTRIBUTE_WICKET_SESSION);
 		assertThat(session).isNotNull();
 		assertThat(session).isInstanceOf(ApplicationWebSession.class);
 		((ApplicationWebSession) session).signIn(null, null);

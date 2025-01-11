@@ -1,8 +1,11 @@
 package info.saladlam.example.spring.noticeboard.support;
 
+import org.apache.wicket.request.cycle.RequestCycle;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+
+import javax.servlet.http.HttpServletRequest;
 
 public abstract class Helper {
 
@@ -24,6 +27,10 @@ public abstract class Helper {
 		return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.H2)
 				.setName(name);
+	}
+
+	public static HttpServletRequest getHttpServletRequestFromRequestCycle() {
+		return ((HttpServletRequest) RequestCycle.get().getRequest().getContainerRequest());
 	}
 
 }

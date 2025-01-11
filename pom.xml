@@ -13,7 +13,7 @@
 
 	<groupId>info.saladlam.example</groupId>
 	<artifactId>spring-wicket-noticeboard</artifactId>
-	<version>0.1</version>
+	<version>0.11</version>
 	<name>spring-wicket-noticeboard</name>
 	<description>Apache wicket with spring boot example application: notice board</description>
 

@@ -1,5 +1,6 @@
 package info.saladlam.example.spring.noticeboard.config;
 
+import info.saladlam.example.spring.noticeboard.ApplicationConstant;
 import info.saladlam.example.spring.noticeboard.wicket.system.ApplicationWebSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ public class AuthenticationSuccessEventListener implements ApplicationListener<A
             ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) attributes;
             HttpSession session = servletRequestAttributes.getRequest().getSession(false);
             if (Objects.nonNull(session)) {
-                Object s = session.getAttribute("wicket:wicket-filter:session");
+                Object s = session.getAttribute(ApplicationConstant.ATTRIBUTE_WICKET_SESSION);
                 if (Objects.nonNull(s) && (s instanceof ApplicationWebSession)) {
                     LOGGER.debug("wicket Session {} found in HttpSession", s);
                     ((ApplicationWebSession) s).signIn(null, null);

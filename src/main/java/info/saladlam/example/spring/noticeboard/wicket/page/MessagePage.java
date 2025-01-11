@@ -10,6 +10,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.http.flow.AbortWithHttpErrorCodeException;
@@ -88,6 +89,14 @@ public class MessagePage extends BasePage {
                 return isEdit() ? getString("editMessage") : getString("newMessage");
             }
         }));
+
+        add(new FeedbackPanel("edFeedback") {
+            @Override
+            public void onConfigure() {
+                super.onConfigure();
+                setVisible(anyMessage());
+            }
+        });
 
         final FormComponent<LocalDateTime> edPublishDate = new TextField<LocalDateTime>("edPublishDate", new PropertyModel<>(this, "publishDate")).setRequired(true);
         final FormComponent<LocalDateTime> edRemoveDate = new TextField<>("edRemoveDate", new PropertyModel<>(this, "removeDate"));

@@ -1,10 +1,9 @@
 package info.saladlam.example.spring.noticeboard.wicket.model;
 
+import info.saladlam.example.spring.noticeboard.support.Helper;
 import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.request.cycle.RequestCycle;
 import org.springframework.security.web.WebAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
@@ -14,7 +13,7 @@ public class HttpSessionRuntimeExceptionModel extends LoadableDetachableModel<Ru
 
     @Override
     protected RuntimeException load() {
-        HttpSession session = ((HttpServletRequest) RequestCycle.get().getRequest().getContainerRequest()).getSession(false);
+        HttpSession session = Helper.getHttpServletRequestFromRequestCycle().getSession(false);
         if (Objects.nonNull(session)) {
             Object ex = session.getAttribute(SESSION_KEY);
             if (Objects.nonNull(ex) && ex instanceof RuntimeException) {

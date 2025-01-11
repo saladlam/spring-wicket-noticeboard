@@ -5,17 +5,18 @@
 <body>
 <wicket:extend>
   <h4 wicket:id="title"></h4>
+  <div wicket:id="edFeedback" class="ui message warning"></div>
   <form wicket:id="editor" class="ui form">
     <input wicket:id="formCsrf" type="hidden">
     <fieldset>
       <legend><wicket:message key="message"></wicket:message></legend>
       <div class="field">
         <label><wicket:message key="message.publishDate"></wicket:message></label>
-        <input wicket:id="edPublishDate" id="edPublishDate" />
+        <input wicket:id="edPublishDate" id="edPublishDate" placeholder="DD-MM-YYYY HH:MM" />
       </div>
       <div class="field">
         <label><wicket:message key="message.removeDate"></wicket:message></label>
-        <input wicket:id="edRemoveDate" id="edRemoveDate" />
+        <input wicket:id="edRemoveDate" id="edRemoveDate" placeholder="DD-MM-YYYY HH:MM" />
       </div>
       <div class="field">
         <label><wicket:message key="message.description"></wicket:message></label>
